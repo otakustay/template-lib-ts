@@ -1,0 +1,101 @@
+{
+  "private": true,
+  "name": "@otakustay/template-lib-ts",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Template repository from TypeScript library project",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 18"
+  },
+  "scripts": {
+    "clean": "wireit",
+    "build": "wireit",
+    "lint": "wireit",
+    "test": "wireit",
+    "ci": "npm ci && npm run clean && npm run build && npm run lint && npm run test",
+    "prepare": "husky",
+    "prerelease": "npm run ci",
+    "prepublishOnly": "npm run build-clean",
+    "release": "standard-version"
+  },
+  "wireit": {
+    "clean": {
+      "command": "rm -rf esm cjs"
+    },
+    "build-esm": {
+      "command": "tsc -p tsconfig.esm.json",
+      "files": [
+        "tsconfig.json",
+        "tsconfig.build.json",
+        "tsconfig.esm.json",
+        "src/**"
+      ],
+      "output": [
+        "esm/**"
+      ]
+    },
+    "build-cjs": {
+      "command": "tsc -p tsconfig.cjs.json && echo '{\"type\": \"commonjs\"}' > cjs/package.json",
+      "files": [
+        "tsconfig.json",
+        "tsconfig.build.json",
+        "tsconfig.cjs.json",
+        "src/**"
+      ],
+      "output": [
+        "cjs/**"
+      ]
+    },
+    "build": {
+      "dependencies": [
+        "build-esm",
+        "build-cjs"
+      ]
+    },
+    "lint": {
+      "command": "eslint --max-warnings=0 --fix src",
+      "files": [
+        "tsconfig.json",
+        "eslint.config.js",
+        "src/**"
+      ],
+      "output": []
+    },
+    "test": {
+      "command": "vitest run",
+      "files": [
+        "tsconfig.json",
+        "vite.config.js",
+        "src/**"
+      ],
+      "output": [
+        "coverage"
+      ]
+    }
+  },
+  "homepage": "https://github.com/otakustay/template-lib-ts",
+  "bugs": {
+    "url": "https://github.com/otakustay/template-lib-ts/issues"
+  },
+  "author": "otakustay <otakustay@gmail.com> (https://github.com/otakustay)",
+  "repository": "github:otakustay/template-lib-ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/js": "^9.15.0",
+    "@vitest/coverage-v8": "^2.1.5",
+    "dprint": "^0.47.5",
+    "eslint": "^9.15.0",
+    "husky": "^9.1.6",
+    "standard-version": "^9.5.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.14.0",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5",
+    "wireit": "^0.14.9"
+  }
+}
