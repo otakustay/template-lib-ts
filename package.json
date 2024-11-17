@@ -5,6 +5,15 @@
   "version": "1.0.0",
   "description": "Template repository from TypeScript library project",
   "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js"
+    }
+  },
+  "module": "./es/index.js",
+  "main": "./cjs/index.js",
+  "types": "./cjs/index.d.ts",
   "engines": {
     "node": ">= 18"
   },
