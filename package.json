@@ -4,7 +4,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "Template repository from TypeScript library project",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "engines": {
     "node": ">= 18"
   },
