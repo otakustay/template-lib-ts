@@ -24,7 +24,7 @@
     "test": "wireit",
     "ci": "npm ci && npm run clean && npm run build && npm run lint && npm run test",
     "prepare": "husky",
-    "prepublishOnly": "npm run build-clean"
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "wireit": {
     "clean": {
