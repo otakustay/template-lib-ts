@@ -1,3 +1,5 @@
+import crypto from 'node:crypto';
+
 export function getRandomToHex() {
     const array = new Uint8Array(4);
     crypto.getRandomValues(array);
