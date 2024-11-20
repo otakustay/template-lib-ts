@@ -17,6 +17,7 @@ export default ts.config(
         rules: {
             '@typescript-eslint/no-unsafe-assignment': 'off',
             '@typescript-eslint/no-explicit-any': 'off',
+            '@typescript-eslint/no-empty-function': 'off',
         },
     }
 );
