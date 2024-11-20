@@ -6,5 +6,8 @@
   "autoApprove": true,
   "automerge": true,
   "semanticCommits": "enabled",
-  "semanticCommitScope": ""
+  "semanticCommitScope": "",
+  "lockFileMaintenance": {
+    "enabled": true
+  }
 }
