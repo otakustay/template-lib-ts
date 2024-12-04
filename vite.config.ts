@@ -1,7 +1,6 @@
-/// <reference types="vitest" />
-import {UserConfig} from 'vite';
+import {ViteUserConfig} from 'vitest/config';
 
-const config: UserConfig = {
+const config: ViteUserConfig = {
     test: {
         include: ['src/**/*.test.ts'],
         coverage: {
