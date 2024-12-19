@@ -33,6 +33,14 @@ export default ts.config(
                     ignoreVoidOperator: true,
                 },
             ],
+            '@typescript-eslint/require-await': 'off',
+            '@typescript-eslint/no-unsafe-call': 'off',
+            '@typescript-eslint/prefer-nullish-coalescing': [
+                'error',
+                {
+                    ignorePrimitives: true,
+                },
+            ],
         },
     }
 );
